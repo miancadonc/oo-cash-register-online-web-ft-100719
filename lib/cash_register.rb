@@ -3,7 +3,7 @@ class CashRegister
   
   
   def initialize(discount = 0)
-    @discount = (discount/100.0)
+    @discount = discount
     @total = 0.0
     @all = []
   end
@@ -17,7 +17,7 @@ class CashRegister
   end
   
   def apply_discount
-    @total = @total - @total*@discount
+    @total = @total - @total*(@discount/100.0)
     @discount == 0? "There is no discount to apply." :  "After the discount, the total comes to $#{@total.to_i}." 
   end
   
@@ -27,7 +27,6 @@ class CashRegister
   
   def void_last_transaction
     @total = @last_total
-    
   end
   
 end
