@@ -24,4 +24,9 @@ class CashRegister
     @all
   end
   
+  def void_last_transaction
+    @all.pop
+    @total = 0.0 if @all.clear?
+  end
+  
 end
